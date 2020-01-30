@@ -1,11 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Event from '../Event';
+import { mockEvent } from '../mock-event';
+
+let event = mockEvent.events[0];
 
 describe ('<Event /> component', () => {
   let EventWrapper;
   beforeAll(() => {
-    EventWrapper = shallow(<Event />);
+    EventWrapper = shallow(<Event event={event} />);
   });
 
   test('verify that an event shows a time', () => {
@@ -25,11 +28,11 @@ describe ('<Event /> component', () => {
   });
 
   test('verify that an event shows a details button', () => {
-    expect(EventWrapper.find('.detailsButton')).toHaveLength(1);
+    expect(EventWrapper.find('.details-btn')).toHaveLength(1);
   });
 
   test('verify that details appear when button is clicked', () => {
-    EventWrapper.find('.detailsButton').simulate('click');
+    EventWrapper.find('.details-btn').simulate('click');
     expect(EventWrapper.state('detailsAreHidden')).toBe(false);
   });
 
