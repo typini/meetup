@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 
 class NumberOfEvents extends Component {
-  state = {
-    eventCount: 24
-  }
 
-  handleInputChanged = (event) => {
-    const value = event.target.value;
-    this.setState({ eventCount: value});
+  handleInputChanged = (e) => {
+    this.props.updatePage(e.target.value)
   }
 
   render() {
     return (
       <div className="numberOfEvents">
         <span>Show</span>
-        <input className="eventBox" type="number" value={this.state.eventCount} onChange={this.handleInputChanged} />
+        <input className="eventBox" id="eventBox" type="number" value={this.props.page} onChange={this.handleInputChanged.bind(this)} />
         <span>Events</span>
       </div>
     );

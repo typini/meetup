@@ -15,7 +15,7 @@ describe('<NumberOfEvents /> component', () => {
   test('counts the number of events in the selected city', () => {
     const eventObject = {target: { value: '4' }};
     NumberOfEventsWrapper.find('.eventBox').simulate('change', eventObject);
-    expect(NumberOfEventsWrapper.state('eventCount')).toBe('4');
+    expect(NumberOfEventsWrapper.state('page')).toBe('4');
   });
 
 });

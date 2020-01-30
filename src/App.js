@@ -7,18 +7,28 @@ import { getEvents } from './api.js';
 
 class App extends Component {
   state = {
-    events: []
+    events: [],
+    page: 32
   };
 
+
+  updatePage = (value) => {
+    this.setState({ page: value });
+  }
+
   updateEvents = (lat, lon) => {
-    getEvents(lat, lon).then(events => this.setState({ events }));
+    getEvents(this.state.page, lat, lon).then(events => this.setState({ events }));
+  }
+
+  componentDidMount() {
+    getEvents(this.state.page).then(events => this.setState({ events }));
   }
 
   render () {
     return (
       <div className="App">
         <CitySearch updateEvents={this.updateEvents} />
-        <NumberOfEvents />
+        <NumberOfEvents updatePage={this.updatePage.bind(this)} page={this.state.page} />
         <EventList events={this.state.events} />
       </div>
     );

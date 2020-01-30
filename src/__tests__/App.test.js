@@ -57,4 +57,14 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
 
+  test('render the correct number of events', async () => {
+    const AppWrapper = mount (<App />);
+    AppWrapper.setState({ events: mockEvents.events });
+    //let target = document.getElementsByClassName('eventBox');
+    await AppWrapper.update();
+    expect(AppWrapper.find('.event')).toHaveLength(20);
+    AppWrapper.unmount();
+  });
+
+
 });
