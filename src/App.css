@@ -100,6 +100,10 @@ input[type="text"], input[type="number"] {
 
 .number-of-events, .eventBox {
   width: 80px;
-  margin: 20px 5px 50px;
+  margin: 2px 5px 8px;
   text-align: right;
+}
+
+.Alert {
+  height: 1.7em;
 }
