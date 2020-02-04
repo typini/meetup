@@ -106,7 +106,7 @@ async function getEvents(page, lat, lon) {
     const result = await axios.get(url);
     const events = result.data.events;
     if (events.length) {
-      localStorage.setItems('lastEvents', JSON.stringify(events));
+      localStorage.setItem('lastEvents', JSON.stringify(events));
     }
     return events;
   }
