@@ -66,7 +66,7 @@ class App extends Component {
         <ResponsiveContainer height={400}>
           <ScatterChart
             margin={{
-              top: 12, right: 12, bottom: 12, left: 12
+              top: 26, right: 26, bottom: 26, left: 26
             }}
           >
             <CartesianGrid />
