@@ -18,9 +18,15 @@ class CitySearch extends Component {
           infoText: 'We cannot find the city you are looking for.  Please try another city.'
         });
       } else {
-        this.setState({
-          infoText: ''
-        });
+        if (!navigator.onLine) {
+          this.setState({
+            infoText: 'You are not connected to the Internet. Information provided may not be up to date.'
+          });
+        } else {
+          this.setState({
+            infoText: ''
+          });
+        }
       }
     });
   }
